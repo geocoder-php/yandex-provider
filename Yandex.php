@@ -125,7 +125,7 @@ final class Yandex extends AbstractHttpProvider implements Provider
         $json = json_decode($content, true);
 
         if (empty($json) || isset($json['error']) ||
-            (isset($json['response']) && '0' === $json['response']['GeoObjectCollection']['metaDataProperty']['GeocoderResponseMetaData']['found'])
+            (isset($json['response']) && '0' === $json['response']['GeoObjectCollection']['metaDataProperty']['GeocoderResponseMetaData']['results'])
         ) {
             return new AddressCollection([]);
         }
